@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTOBAHN '95 | The Golden Era</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Night Mode Styles */
+        .night-mode { background-color: #050505; color: #ffffff; }
+        .night-mode .card { background-color: #0f0f0f; border-color: #222; }
+        .night-mode .accent-text { color: #ff3c00; text-shadow: 0 0 15px rgba(255, 60, 0, 0.6); }
+        .night-mode nav { border-color: #222; background: rgba(5, 5, 5, 0.8); }
+        
+        .scanline {
+            width: 100%; height: 100%; position: fixed; top: 0; left: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
+            background-size: 100% 4px; pointer-events: none; z-index: 50;
+        }
+
+        .car-card img { transition: transform 0.7s ease; }
+        .car-card:hover img { transform: scale(1.05); }
+    </style>
+</head>
+<body class="bg-white text-black overflow-x-hidden">
+    <div class="scanline"></div>
+
+    <nav class="fixed w-full flex justify-between items-center p-6 border-b border-gray-200 z-40 backdrop-blur-md bg-white/80">
+        <h1 class="text-2xl font-bold tracking-tighter uppercase italic">Autobahn <span class="accent-text text-orange-600">'95</span></h1>
+        <div class="flex gap-8 mono text-xs uppercase tracking-[0.2em] items-center">
+            <a href="#" class="hidden md:block hover:text-orange-600 transition">Catalog</a>
+            <a href="#" class="hidden md:block hover:text-orange-600 transition">Heritage</a>
+            <button id="nightToggle" class="px-6 py-2 border-2 border-current font-bold hover:bg-orange-600 hover:text-white transition-all uppercase text-[10px]">
+                Toggle Headlights
+            </button>
+        </div>
+    </nav>
+
+    <header class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1619141505928-867117d7227d?q=80&w=2070&auto=format&fit=crop" 
+                 alt="BMW 8 Series" class="w-full h-full object-cover opacity-80">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
+        </div>
+        <div class="relative z-10 text-center px-4">
+            <p class="mono text-orange-500 mb-4 uppercase tracking-[0.5em] text-sm">German Engineering Peak</p>
+            <h2 class="text-7xl md:text-[10rem] font-bold text-white tracking-tighter uppercase italic leading-none">V12 Pure</h2>
+            <p class="text-white/60 mt-4 mono text-lg uppercase">The E31 Legend</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-32 px-6">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            
+            <div class="car-card md:col-span-8 group relative overflow-hidden border border-gray-200 rounded-sm card">
+                <div class="h-[500px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" 
+                         class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <span class="mono text-orange-600 text-sm tracking-widest uppercase font-bold">The Last Air-Cooled</span>
+                            <h3 class="text-5xl font-bold mt-2 uppercase italic italic">Porsche 911 (993)</h3>
+                        </div>
+                        <p class="mono text-3xl font-light">1993</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 card border border-gray-200 p-8 flex flex-col justify-between bg-zinc-900 text-white">
+                <div class="mono space-y-6">
+                    <div class="border-b border-white/10 pb-4">
+                        <p class="text-orange-500 text-xs mb-1 uppercase">Top Performance</p>
+                        <p class="text-4xl font-bold">290 KM/H</p>
+                    </div>
+                    <div class="border-b border-white/10 pb-4">
+                        <p class="text-orange-500 text-xs mb-1 uppercase">Aspiration</p>
+                        <p class="text-4xl font-bold">Naturally Aspirated</p>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <p class="text-sm text-gray-400 italic">"Everything else is just a car."</p>
+                </div>
+            </div>
+
+            <div class="car-card md:col-span-6 group border border-gray-200 card">
+                <div class="h-80 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1621348364500-47ec6888c340?q=80&w=1965&auto=format&fit=crop" 
+                         class="w-full h-full object-cover group-hover:brightness-110">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-3xl font-bold uppercase italic">Mercedes 190E Evo II</h3>
+                    <p class="mt-2 text-gray-500 mono uppercase text-xs tracking-widest">DTM Street Legal Legend</p>
+                </div>
+            </div>
+
+            <div class="car-card md:col-span-6 group border border-gray-200 card">
+                <div class="h-80 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop" 
+                         class="w-full h-full object-cover group-hover:brightness-110">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-3xl font-bold uppercase italic">Audi RS2 Avant</h3>
+                    <p class="mt-2 text-gray-500 mono uppercase text-xs tracking-widest">Porsche-Powered Wagon</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="p-20 text-center border-t border-gray-200 card">
+        <p class="mono text-[10px] opacity-40 uppercase tracking-[0.5em]">Digital Heritage — Stuttgart // Munich // Ingolstadt</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('nightToggle');
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('night-mode');
+            btn.innerText = document.body.classList.contains('night-mode') ? 'Kill Lights' : 'Toggle Headlights';
+        });
+    </script>
+</body>
+</html>
